@@ -13,7 +13,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  bool _notifications = true;
 
   void _logout() {
     UserStore.logout();
@@ -147,44 +146,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                   const SizedBox(height: 24),
 
-                  // Settings
-                  Text('Settings',
-                      style: theme.textTheme.titleMedium
-                          ?.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   Card(
                     elevation: 0,
                     color: Colors.white,
                     child: Column(
-                      children: [
-                        SwitchListTile(
-                          secondary: const Icon(Icons.notifications_outlined,
-                              color: AppTheme.primary),
-                          title: const Text('Nearby water alerts'),
-                          value: _notifications,
-                          onChanged: (v) =>
-                              setState(() => _notifications = v),
-                        ),
-                        const Divider(height: 1),
-                        ListTile(
-                          leading: const Icon(Icons.info_outline,
-                              color: AppTheme.primary),
-                          title: const Text('About this app'),
-                          onTap: () => showAboutDialog(
-                            context: context,
-                            applicationName: 'Shah Alam Clean Water Map',
-                            applicationVersion: '1.0.0 (prototype)',
-                            applicationIcon: const Icon(
-                                Icons.water_drop_rounded,
-                                color: AppTheme.primary,
-                                size: 40),
-                            children: const [
-                              Text(
-                                  'Helping residents and visitors find clean drinking water in Shah Alam.'),
-                            ],
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                   const SizedBox(height: 24),
